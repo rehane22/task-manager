@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet">
+  <title>Manager de tâches</title>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-rose-200 via-pink-200 to-violet-300 antialiased">
+  <div class="min-h-screen flex items-center justify-center p-6">
+    <div class="relative w-full max-w-xl">
+      <div class="backdrop-blur-xl bg-white/80 border border-white/60 shadow-xl rounded-2xl overflow-hidden">
+        <div class="px-6 pt-6">
+          <h1 class="text-2xl font-semibold text-slate-800 tracking-tight">To-do List</h1>
+          <p class="text-sm text-slate-500 mt-1">Organise tes tâches.</p>
+        </div>
+        <form id="taskForm" class="px-6 py-6 grid gap-4">
+          <div class="grid gap-2">
+            <label for="taskTitle" class="text-sm font-medium text-slate-700">Titre</label>
+            <input id="taskTitle" type="text" required
+              class="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-2.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-violet-300/60 focus:border-violet-400 transition"
+              placeholder="Ex: Finir le TP" />
+          </div>
+          <div class="grid gap-2">
+            <label for="taskDescription" class="text-sm font-medium text-slate-700">Description</label>
+            <input id="taskDescription" type="text" required
+              class="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-violet-300/60 focus:border-violet-400 transition"
+              placeholder="Ex: le support est sur Slack" />
+          </div>
+          <div class="flex items-center justify-end gap-3 pt-2">
+            <button type="reset"
+              class="rounded-xl px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 transition">
+              Effacer
+            </button>
+            <button type="submit"
+              class="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-violet-700 focus:outline-none focus:ring-4 focus:ring-violet-300/60 transition">
+              Ajouter
+            </button>
+          </div>
+        </form>
+        <div class="px-6 pb-8">
+          <h2 class="mb-3 text-sm font-medium text-slate-500">Liste de tâches</h2>
+          <div id="result" class="divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white/70 max-h-180 overflow-auto "/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/app.ts"></script>
+</body>
+
+</html>
