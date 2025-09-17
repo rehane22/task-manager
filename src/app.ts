@@ -129,13 +129,21 @@ function createTask(task: Task): HTMLDivElement {
 function renderTasks(list?: Task[]) {
     resultDiv.innerHTML = "";
     //initiliaser la liste de tache si list existe list sinon recupere la list de toute les taches avec getAllTasks
-    const tasks = list ?? taskService.getAllTasks();
+    let tasks = list ?? taskService.getAllTasks();
+
     // affichege si pas de taches 
     if (tasks.length === 0) {
         resultDiv.innerHTML = `<div class="p-6 text-center text-slate-500">Aucune tâche pour le moment.</div>`;
         return;
     }
-    //boucle pour afficher les taches dna sune div 
+
+    // trier les taches terminee a la fin de la liste 
+    // les taches todo sont les done
+    tasks = tasks.sort((a,b)=> {
+       if (a.status === b.status) return 0;
+        return a.status === "todo" ? -1 : 1;
+    });
+    //boucle pour afficher les taches dans une div 
     tasks.forEach((task) => {
         resultDiv.appendChild(createTask(task));
     });
