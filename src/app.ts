@@ -216,7 +216,7 @@ dropdownMenu.addEventListener("click", (e) => {
     //recupere la valeur associée au bouton via data-value.
     const value = (target.getAttribute("data-value")) as StatusFilter;
     //on met a jour le texte du bouton 
-    dropdownLabel.textContent = target.textContent?.trim();
+    dropdownLabel.textContent = target.textContent?.trim() ?? null;
     //on change l'etat du filtre
     filterState.status = value;
     //on applique les filtres
